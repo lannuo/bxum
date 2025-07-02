@@ -1,0 +1,37 @@
+[package]
+edition = "2021"
+rust-version = { workspace = true }
+name = "bxum-core"
+version = "0.5.2"
+
+[features]
+tracing = ["dep:tracing"]
+
+[dependencies]
+bytes = "1.2"
+futures-core = "0.3"
+http = "1.0.0"
+http-body = "1.0.0"
+http-body-util = "0.1.0"
+mime = "0.3.16"
+pin-project-lite = "0.2.7"
+rustversion = "1.0.9"
+sync_wrapper = "1.0.0"
+tower-layer = "0.3"
+tower-service = "0.3"
+
+# optional dependencies
+tower-http = { version = "0.6.0", optional = true, features = ["limit"] }
+tracing = { version = "0.1.37", default-features = false, optional = true }
+
+[dev-dependencies]
+# bxum = { path = "../bxum", features = ["__private"] }
+# bxum-extra = { path = "../bxum-extra", features = ["typed-header"] }
+# bxum-macros = { path = "../bxum-macros", features = ["__private"] }
+hyper = "1.0.0"
+tokio = { version = "1.25.0", features = ["macros"] }
+tower-http = { version = "0.6.0", features = ["limit"] }
+
+
+[lints]
+workspace = true
