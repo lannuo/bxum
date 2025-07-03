@@ -14,6 +14,6 @@ mod error;
 pub use self::error::Error;
 
 pub mod body;
-
+pub mod response;
 
 pub type BoxError = Box<dyn std::error::Error + Send + Sync>;
