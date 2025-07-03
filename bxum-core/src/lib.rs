@@ -1,9 +1,10 @@
+
 #![cfg_attr(test, allow(clippy::float_cmp))]
 #![cfg_attr(not(test), warn(clippy::print_stdout, clippy::dbg_macro))]
 
-// #[macro_use]
-// pub(crate) mod macros;
-#[doc(hidden)] // macro helpers
+#[macro_use]
+pub(crate) mod macros;
+#[doc(hidden)]
 pub mod __private {
     #[cfg(feature = "tracing")]
     pub use tracing;
@@ -12,6 +13,7 @@ pub mod __private {
 mod error;
 pub use self::error::Error;
 
+pub mod body;
 
-/// Alias for a type-erased error type.
+
 pub type BoxError = Box<dyn std::error::Error + Send + Sync>;
